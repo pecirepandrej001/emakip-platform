@@ -1,0 +1,10 @@
+router:
+  description: Route requests to the correct specialist.
+document_analyzer:
+  description: Answer questions grounded in indexed enterprise documents.
+sql_analytics:
+  description: Answer safe read-only analytical questions over platform metadata.
+reviewer:
+  description: Validate evidence coverage, confidence and unsupported claims.
+summarizer:
+  description: Produce a concise final answer with source-aware language.

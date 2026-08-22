@@ -1,0 +1,11 @@
+chunking:
+  strategy: recursive
+  chunk_size: 700
+  chunk_overlap: 100
+retrieval:
+  vector_weight: 0.7
+  lexical_weight: 0.3
+  top_k: 8
+reranking:
+  enabled: true
+  top_k: 4

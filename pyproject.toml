@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "emakip-platform"
+version = "1.0.0"
+description = "Enterprise Multi-Agent Knowledge & Intelligence Platform"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.116,<1",
+  "uvicorn[standard]>=0.35,<1",
+  "pydantic>=2.11,<3",
+  "pydantic-settings>=2.10,<3",
+  "sqlalchemy[asyncio]>=2.0,<3",
+  "asyncpg>=0.30,<1",
+  "alembic>=1.16,<2",
+  "python-jose[cryptography]>=3.5,<4",
+  "passlib[bcrypt]>=1.7,<2",
+  "bcrypt>=4.2,<5",
+  "python-multipart>=0.0.20,<1",
+  "email-validator>=2.2,<3",
+  "aiosqlite>=0.21,<1",
+  "httpx>=0.28,<1",
+  "redis>=6,<7",
+  "celery>=5.5,<6",
+  "qdrant-client>=1.15,<2",
+  "sentence-transformers>=5,<6",
+  "torch>=2.7,<3",
+  "langgraph>=0.6,<1",
+  "langchain>=0.3,<1",
+  "langchain-openai>=0.3,<1",
+  "langchain-huggingface>=0.3,<1",
+  "rank-bm25>=0.2,<1",
+  "pymupdf>=1.26,<2",
+  "python-docx>=1.2,<2",
+  "pillow>=11,<12",
+  "pandas>=2.3,<3",
+  "openpyxl>=3.1,<4",
+  "reportlab>=4.4,<5",
+  "streamlit>=1.48,<2",
+  "prometheus-client>=0.22,<1",
+  "structlog>=25,<26",
+  "mlflow>=3.2,<4",
+  "pyyaml>=6,<7",
+  "numpy>=2,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1.1,<2",
+  "coverage>=7.10,<8",
+  "ruff>=0.12,<1",
+  "mypy>=1.17,<2",
+  "pre-commit>=4.3,<5",
+  "types-PyYAML>=6.0,<7",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*", "config*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = ["src/db/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_return_any = false
+exclude = "src/db/migrations"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+testpaths = ["tests"]

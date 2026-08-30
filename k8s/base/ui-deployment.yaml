@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: emakip-ui}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: emakip-ui}}
+  template:
+    metadata: {labels: {app: emakip-ui}}
+    spec:
+      containers:
+        - name: ui
+          image: ghcr.io/your-org/emakip-ui:latest
+          ports: [{containerPort: 8501}]
+          env:
+            - {name: API_BASE_URL, value: "http://emakip-api:8000"}
+          resources:
+            requests: {cpu: "100m", memory: "256Mi"}
+            limits: {cpu: "500m", memory: "1Gi"}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: emakip-ui}
+spec:
+  selector: {app: emakip-ui}
+  ports: [{port: 8501, targetPort: 8501}]

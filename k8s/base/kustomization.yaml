@@ -1,0 +1,8 @@
+resources:
+  - api-deployment.yaml
+  - ui-deployment.yaml
+  - worker-deployment.yaml
+  - postgres-statefulset.yaml
+  - qdrant-statefulset.yaml
+  - redis-deployment.yaml
+  - ingress.yaml

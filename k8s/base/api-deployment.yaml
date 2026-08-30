@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: emakip-api}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: emakip-api}}
+  template:
+    metadata: {labels: {app: emakip-api}}
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/your-org/emakip-api:latest
+          ports: [{containerPort: 8000}]
+          envFrom: [{secretRef: {name: emakip-secrets}}]
+          readinessProbe: {httpGet: {path: /health, port: 8000}, initialDelaySeconds: 10, periodSeconds: 10}
+          resources:
+            requests: {cpu: "500m", memory: "1Gi"}
+            limits: {cpu: "2", memory: "4Gi"}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: emakip-api}
+spec:
+  selector: {app: emakip-api}
+  ports: [{port: 8000, targetPort: 8000}]

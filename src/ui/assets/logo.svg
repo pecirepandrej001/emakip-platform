@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="64" viewBox="0 0 220 64">
+  <defs><linearGradient id="g"><stop stop-color="#60a5fa"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+  <rect width="64" height="64" rx="16" fill="#111827"/>
+  <path d="M16 18h32v8H26v8h18v8H26v4h22v8H16z" fill="url(#g)"/>
+  <text x="76" y="40" font-family="Arial" font-size="24" font-weight="700" fill="#e5e7eb">EMAKIP</text>
+</svg>

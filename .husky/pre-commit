@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+ruff format --check .
+ruff check .
+grep -RIl --exclude-dir=.git -E '(OPENAI_API_KEY|SECRET_KEY)=.{12,}' . && {
+  echo "Potential committed secret found."; exit 1;
+} || true

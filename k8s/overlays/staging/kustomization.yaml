@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+namePrefix: staging-
+patches:
+  - target: {kind: Deployment, name: emakip-api}
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1

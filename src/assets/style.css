@@ -1,0 +1,8 @@
+:root { --panel: #111827; --muted: #94a3b8; --accent: #60a5fa; }
+.stApp { background: linear-gradient(180deg,#07111f,#0f172a); color: #e5e7eb; }
+.block-container { max-width: 1180px; padding-top: 2rem; }
+.emakip-card { background: rgba(17,24,39,.85); border: 1px solid rgba(148,163,184,.18);
+  padding: 1rem 1.2rem; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.15); }
+.agent-step { border-left: 3px solid #60a5fa; padding: .45rem .75rem; margin: .35rem 0;
+  background: rgba(96,165,250,.08); border-radius: 8px; }
+.small-muted { color: #94a3b8; font-size: .88rem; }
